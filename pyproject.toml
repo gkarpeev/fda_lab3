@@ -17,7 +17,11 @@ pythonpath = ["src"]
 [tool.ruff]
 line-length = 79
 target-version = "py310"
-include = ["src/emlab/intervention.py", "src/emlab/lab2_*.py", "scripts/*lab2.py", "tests/test_intervention.py", "tests/test_lab2.py", "notebooks/lab2_interventions.ipynb"]
+include = ["src/emlab/intervention.py", "src/emlab/lab2_*.py", "scripts/*lab2.py", "tests/test_intervention.py", "tests/test_lab2.py", "notebooks/lab2_interventions.ipynb", "src/graphmh/*.py", "src/emlab/lab3_*.py", "scripts/*lab3*.py", "tests/test_graphmh.py", "tests/test_lab3.py", "notebooks/lab3_metropolis_hastings.ipynb"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]
+
+[tool.ruff.lint.per-file-ignores]
+# Rows of Markdown tables and display formulas cannot be wrapped.
+"scripts/build_lab3.py" = ["E501"]

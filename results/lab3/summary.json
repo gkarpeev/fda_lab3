@@ -1,0 +1,981 @@
+{
+  "config": {
+    "seed": 20261029,
+    "bootstrap_replicates": 200,
+    "intervention_alpha": 2.0,
+    "intervention_repeats": 3,
+    "stability_weight": 1.0,
+    "proposal_floor": 0.1,
+    "swap_probability": 0.3,
+    "steps": 60000,
+    "burn_in": 500,
+    "exact_stability_edges": 5,
+    "sequence_steps": 10,
+    "stability_levels": [
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "weight_grid": [
+      0.0,
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "notebook_timeout_seconds": 7200
+  },
+  "python": "3.13.9",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "problems": {
+    "rlc": {
+      "edges": [
+        "M",
+        "R₂",
+        "Rₘ",
+        "Sₘ",
+        "E₂"
+      ],
+      "truth": "{M, R₂}",
+      "validation_rmse": 2.738686668337599e-05,
+      "tolerance": 0.0016197744461585548,
+      "edge_price": 2.9055704964883504,
+      "edge_report": [
+        {
+          "edge": "M",
+          "kind": "индуктивная связь",
+          "truth": true,
+          "selected": true,
+          "ratio": 0.01578940204367557,
+          "instability": 0.01578940204367557,
+          "delta_loss_before": 360334.41186579724,
+          "delta_loss_after": 360337.22345627524,
+          "flip_acceptance": 0.0,
+          "frequency": 0.9950532212885154,
+          "exact_frequency": 0.9932970931475863,
+          "lab2_delta_rmse": 0.014954422881868882,
+          "lab2_tolerance": 0.0016197744461585548,
+          "lab2_decision": "СОХРАНИТЬ"
+        },
+        {
+          "edge": "R₂",
+          "kind": "собственные потери",
+          "truth": true,
+          "selected": true,
+          "ratio": 0.016555371072475202,
+          "instability": 0.016555371072475202,
+          "delta_loss_before": 21244.909314756504,
+          "delta_loss_after": 21244.82305539304,
+          "flip_acceptance": 0.0,
+          "frequency": 1.0,
+          "exact_frequency": 1.0,
+          "lab2_delta_rmse": 0.0035814967388832254,
+          "lab2_tolerance": 0.0016197744461585548,
+          "lab2_decision": "СОХРАНИТЬ"
+        },
+        {
+          "edge": "Rₘ",
+          "kind": "резистивная связь",
+          "truth": false,
+          "selected": false,
+          "ratio": 1.2844161197338313,
+          "instability": 1.0,
+          "delta_loss_before": 2.0411181619648175,
+          "delta_loss_after": 4.947935218590317,
+          "flip_acceptance": 0.007572574639909826,
+          "frequency": 0.012408963585434174,
+          "exact_frequency": 0.014187978690738366,
+          "lab2_delta_rmse": -8.39756121803739e-06,
+          "lab2_tolerance": 0.0016197744461585548,
+          "lab2_decision": "УДАЛИТЬ"
+        },
+        {
+          "edge": "Sₘ",
+          "kind": "ёмкостная связь",
+          "truth": false,
+          "selected": false,
+          "ratio": 1.6950262914236562,
+          "instability": 1.0,
+          "delta_loss_before": 2.900488255622207,
+          "delta_loss_after": 6.011636432088551,
+          "flip_acceptance": 0.002559855278530218,
+          "frequency": 0.007165266106442577,
+          "exact_frequency": 0.009310663406015687,
+          "lab2_delta_rmse": -7.384224140742651e-08,
+          "lab2_tolerance": 0.0016197744461585548,
+          "lab2_decision": "УДАЛИТЬ"
+        },
+        {
+          "edge": "E₂",
+          "kind": "наводка источника",
+          "truth": false,
+          "selected": false,
+          "ratio": 1.668554398072179,
+          "instability": 1.0,
+          "delta_loss_before": 2.6288569268453728,
+          "delta_loss_after": 5.534912607997171,
+          "flip_acceptance": 0.004210722968505609,
+          "frequency": 0.00923249299719888,
+          "exact_frequency": 0.010925757068564771,
+          "lab2_delta_rmse": -2.8902757445476222e-06,
+          "lab2_tolerance": 0.0016197744461585548,
+          "lab2_decision": "УДАЛИТЬ"
+        }
+      ],
+      "lab2_rule_agrees": true,
+      "lab2_full_graph": {
+        "boundary_fraction": 0.715,
+        "identified": [
+          false,
+          true,
+          true,
+          false,
+          true
+        ],
+        "records": [
+          {
+            "dataset": "rlc_couplings",
+            "parameter": "M [nH]",
+            "estimate": 31.374795184280885,
+            "ablated_value": 0.0,
+            "full_rmse": 4.4244667082546244e-05,
+            "reduced_rmse": 4.418004842769601e-05,
+            "delta_rmse": -6.461865485023335e-08,
+            "tolerance": 0.0016197744461585548,
+            "boundary_fraction": 0.715,
+            "decision": "СОХРАНИТЬ"
+          },
+          {
+            "dataset": "rlc_couplings",
+            "parameter": "R2 [ohm]",
+            "estimate": 4.07196215683981,
+            "ablated_value": 1e-06,
+            "full_rmse": 4.4244667082546244e-05,
+            "reduced_rmse": 0.0035940770595295772,
+            "delta_rmse": 0.0035498323924470308,
+            "tolerance": 0.0016197744461585548,
+            "boundary_fraction": 0.715,
+            "decision": "СОХРАНИТЬ"
+          },
+          {
+            "dataset": "rlc_couplings",
+            "parameter": "Rm [ohm]",
+            "estimate": 0.05876787590097629,
+            "ablated_value": 0.0,
+            "full_rmse": 4.4244667082546244e-05,
+            "reduced_rmse": 4.411900149819757e-05,
+            "delta_rmse": -1.2566558434867265e-07,
+            "tolerance": 0.0016197744461585548,
+            "boundary_fraction": 0.715,
+            "decision": "СОХРАНИТЬ"
+          },
+          {
+            "dataset": "rlc_couplings",
+            "parameter": "Sm [1/uF]",
+            "estimate": 199.9999999947311,
+            "ablated_value": 0.0,
+            "full_rmse": 4.4244667082546244e-05,
+            "reduced_rmse": 4.418167697382041e-05,
+            "delta_rmse": -6.299010872583543e-08,
+            "tolerance": 0.0016197744461585548,
+            "boundary_fraction": 0.715,
+            "decision": "СОХРАНИТЬ"
+          },
+          {
+            "dataset": "rlc_couplings",
+            "parameter": "E2 [mV]",
+            "estimate": 28.159438033841482,
+            "ablated_value": 0.0,
+            "full_rmse": 4.4244667082546244e-05,
+            "reduced_rmse": 4.415372315862703e-05,
+            "delta_rmse": -9.094392391921247e-08,
+            "tolerance": 0.0016197744461585548,
+            "boundary_fraction": 0.715,
+            "decision": "СОХРАНИТЬ"
+          }
+        ]
+      },
+      "stages": {
+        "без интервенции": {
+          "selected": "{M, R₂}",
+          "selected_is_truth": true,
+          "selected_loss": 176.58564016014083,
+          "selected_share": 0.7461960784313726,
+          "edge_frequency": [
+            0.9862072829131653,
+            1.0,
+            0.14354621848739496,
+            0.087109243697479,
+            0.09755742296918768
+          ],
+          "acceptance": {
+            "полный граф": 0.11068333333333333,
+            "пустой граф": 0.10371666666666667,
+            "случайный граф": 0.1112
+          },
+          "distinct_graphs": 18,
+          "exact_truth_probability": 0.7460823259123996,
+          "exact_edge_frequency": [
+            0.9850652867570289,
+            1.0,
+            0.14373535381327834,
+            0.0877272640731499,
+            0.10059988139065866
+          ],
+          "total_variation": {
+            "полный граф": 0.006263730567845529,
+            "пустой граф": 0.01331679622006096,
+            "случайный граф": 0.009658115738105547
+          }
+        },
+        "с интервенцией": {
+          "selected": "{M, R₂}",
+          "selected_is_truth": true,
+          "selected_loss": 176.6796201786227,
+          "selected_share": 0.981563025210084,
+          "edge_frequency": [
+            0.9950532212885154,
+            1.0,
+            0.012408963585434174,
+            0.007165266106442577,
+            0.00923249299719888
+          ],
+          "acceptance": {
+            "полный граф": 0.00765,
+            "пустой граф": 0.00755,
+            "случайный граф": 0.00755
+          },
+          "distinct_graphs": 13,
+          "exact_truth_probability": 0.9795312696729722,
+          "exact_edge_frequency": [
+            0.9932970931475863,
+            1.0,
+            0.014187978690738366,
+            0.009310663406015687,
+            0.010925757068564771
+          ],
+          "total_variation": {
+            "полный граф": 0.007619219891949941,
+            "пустой граф": 0.0034399746506430986,
+            "случайный граф": 0.002502117412443516
+          }
+        }
+      },
+      "proposals": [
+        {
+          "proposal": "равномерное",
+          "balance_error": 2.710505431213761e-20,
+          "hit_from_full": 101.75544092403042,
+          "hit_from_empty": 73.13725508356835,
+          "spectral_gap": 0.004768844198115518,
+          "acceptance": 0.0049910119228586056
+        },
+        {
+          "proposal": "по интервенции",
+          "balance_error": 1.0842021724855044e-19,
+          "hit_from_full": 113.35338755934912,
+          "hit_from_empty": 69.52443502268046,
+          "spectral_gap": 0.005143577303515889,
+          "acceptance": 0.007499564152229173
+        }
+      ],
+      "weight_sensitivity": {
+        "0.0": 0.7460823259123996,
+        "0.5": 0.9294994636991656,
+        "1.0": 0.9795312696729722,
+        "2.0": 0.9969493885833943,
+        "4.0": 0.9997245021000861
+      }
+    },
+    "silica": {
+      "edges": [
+        "a₁",
+        "a₂",
+        "a₃",
+        "c₀",
+        "c₂",
+        "c₋₂",
+        "c₋₄"
+      ],
+      "truth": "{a₁, a₂, a₃}",
+      "validation_rmse": 5.660776588707209e-06,
+      "tolerance": 0.0002,
+      "edge_price": 2.5375869076169133,
+      "edge_report": [
+        {
+          "edge": "a₁",
+          "kind": "резонанс Зельмейера",
+          "truth": true,
+          "selected": true,
+          "ratio": 0.00031264387432562696,
+          "instability": 0.00031264387432562696,
+          "delta_loss_before": 40490404.56301969,
+          "delta_loss_after": 40490404.56096493,
+          "flip_acceptance": 0.0,
+          "frequency": 1.0,
+          "exact_frequency": null,
+          "lab2_delta_rmse": 0.018127374376863358,
+          "lab2_tolerance": 0.0002,
+          "lab2_decision": "СОХРАНИТЬ"
+        },
+        {
+          "edge": "a₂",
+          "kind": "резонанс Зельмейера",
+          "truth": true,
+          "selected": true,
+          "ratio": 0.0005279838325127151,
+          "instability": 0.0005279838325127151,
+          "delta_loss_before": 14894049.390258351,
+          "delta_loss_after": 14894049.387980921,
+          "flip_acceptance": 0.0,
+          "frequency": 1.0,
+          "exact_frequency": null,
+          "lab2_delta_rmse": 0.010906199773060229,
+          "lab2_tolerance": 0.0002,
+          "lab2_decision": "СОХРАНИТЬ"
+        },
+        {
+          "edge": "a₃",
+          "kind": "резонанс Зельмейера",
+          "truth": true,
+          "selected": true,
+          "ratio": 0.00017260765240458516,
+          "instability": 0.00017260765240458516,
+          "delta_loss_before": 85778436.76750888,
+          "delta_loss_after": 85778436.7672288,
+          "flip_acceptance": 0.0,
+          "frequency": 1.0,
+          "exact_frequency": null,
+          "lab2_delta_rmse": 0.035741033853859114,
+          "lab2_tolerance": 0.0002,
+          "lab2_decision": "СОХРАНИТЬ"
+        },
+        {
+          "edge": "c₀",
+          "kind": "полиномиальный член",
+          "truth": false,
+          "selected": false,
+          "ratio": 3.1178393098038155,
+          "instability": 1.0,
+          "delta_loss_before": 2.531651091796604,
+          "delta_loss_after": 5.120604401213228,
+          "flip_acceptance": 0.006390982371804009,
+          "frequency": 0.005983193277310925,
+          "exact_frequency": null,
+          "lab2_delta_rmse": -3.383601702729828e-09,
+          "lab2_tolerance": 0.0002,
+          "lab2_decision": "УДАЛИТЬ"
+        },
+        {
+          "edge": "c₂",
+          "kind": "полиномиальный член",
+          "truth": false,
+          "selected": false,
+          "ratio": 0.8723041873197594,
+          "instability": 0.8723041873197594,
+          "delta_loss_before": 2.0159228726958673,
+          "delta_loss_after": 4.234560861644027,
+          "flip_acceptance": 0.014169598654610795,
+          "frequency": 0.013282913165266107,
+          "exact_frequency": null,
+          "lab2_delta_rmse": -1.0481268992917406e-06,
+          "lab2_tolerance": 0.0002,
+          "lab2_decision": "УДАЛИТЬ"
+        },
+        {
+          "edge": "c₋₂",
+          "kind": "полиномиальный член",
+          "truth": false,
+          "selected": false,
+          "ratio": 3.0772742786722014,
+          "instability": 1.0,
+          "delta_loss_before": 2.5283480492454657,
+          "delta_loss_after": 5.0853696508101365,
+          "flip_acceptance": 0.006639076924943021,
+          "frequency": 0.006061624649859944,
+          "exact_frequency": null,
+          "lab2_delta_rmse": -6.951581145345464e-09,
+          "lab2_tolerance": 0.0002,
+          "lab2_decision": "УДАЛИТЬ"
+        },
+        {
+          "edge": "c₋₄",
+          "kind": "полиномиальный член",
+          "truth": false,
+          "selected": false,
+          "ratio": 2.7991112806588534,
+          "instability": 1.0,
+          "delta_loss_before": 2.4934389213586883,
+          "delta_loss_after": 5.036119966915379,
+          "flip_acceptance": 0.006983186232192876,
+          "frequency": 0.00711484593837535,
+          "exact_frequency": null,
+          "lab2_delta_rmse": -5.0360114536361934e-08,
+          "lab2_tolerance": 0.0002,
+          "lab2_decision": "УДАЛИТЬ"
+        }
+      ],
+      "lab2_rule_agrees": true,
+      "lab2_full_graph": {
+        "boundary_fraction": 0.7,
+        "identified": [
+          true,
+          true,
+          true,
+          false,
+          true,
+          true,
+          true
+        ],
+        "records": [
+          {
+            "dataset": "silica_library",
+            "parameter": "a1",
+            "estimate": 0.779768920565118,
+            "ablated_value": 0.0,
+            "full_rmse": 7.694483042885569e-06,
+            "reduced_rmse": 8.919349540045868e-05,
+            "delta_rmse": 8.149901235757311e-05,
+            "tolerance": 0.0002,
+            "boundary_fraction": 0.7,
+            "decision": "СОХРАНИТЬ"
+          },
+          {
+            "dataset": "silica_library",
+            "parameter": "a2",
+            "estimate": 0.424327581340369,
+            "ablated_value": 0.0,
+            "full_rmse": 7.694483042885569e-06,
+            "reduced_rmse": 5.9993626904609624e-05,
+            "delta_rmse": 5.2299143861724056e-05,
+            "tolerance": 0.0002,
+            "boundary_fraction": 0.7,
+            "decision": "СОХРАНИТЬ"
+          },
+          {
+            "dataset": "silica_library",
+            "parameter": "a3",
+            "estimate": 0.896594385531375,
+            "ablated_value": 0.0,
+            "full_rmse": 7.694483042885569e-06,
+            "reduced_rmse": 0.0010224485621318758,
+            "delta_rmse": 0.0010147540790889902,
+            "tolerance": 0.0002,
+            "boundary_fraction": 0.7,
+            "decision": "СОХРАНИТЬ"
+          },
+          {
+            "dataset": "silica_library",
+            "parameter": "c0",
+            "estimate": -0.09999998829461255,
+            "ablated_value": 0.0,
+            "full_rmse": 7.694483042885569e-06,
+            "reduced_rmse": 7.697732582758066e-06,
+            "delta_rmse": 3.2495398724977765e-09,
+            "tolerance": 0.0002,
+            "boundary_fraction": 0.7,
+            "decision": "СОХРАНИТЬ"
+          },
+          {
+            "dataset": "silica_library",
+            "parameter": "c2",
+            "estimate": -8.223039141648141e-06,
+            "ablated_value": 0.0,
+            "full_rmse": 7.694483042885569e-06,
+            "reduced_rmse": 7.545250502770486e-06,
+            "delta_rmse": -1.492325401150822e-07,
+            "tolerance": 0.0002,
+            "boundary_fraction": 0.7,
+            "decision": "СОХРАНИТЬ"
+          },
+          {
+            "dataset": "silica_library",
+            "parameter": "c-2",
+            "estimate": -0.0006033904859553942,
+            "ablated_value": 0.0,
+            "full_rmse": 7.694483042885569e-06,
+            "reduced_rmse": 7.69708771689006e-06,
+            "delta_rmse": 2.604674004492237e-09,
+            "tolerance": 0.0002,
+            "boundary_fraction": 0.7,
+            "decision": "СОХРАНИТЬ"
+          },
+          {
+            "dataset": "silica_library",
+            "parameter": "c-4",
+            "estimate": -6.137473617463209e-06,
+            "ablated_value": 0.0,
+            "full_rmse": 7.694483042885569e-06,
+            "reduced_rmse": 7.103866722995548e-06,
+            "delta_rmse": -5.906163198900202e-07,
+            "tolerance": 0.0002,
+            "boundary_fraction": 0.7,
+            "decision": "СОХРАНИТЬ"
+          }
+        ]
+      },
+      "stages": {
+        "без интервенции": {
+          "selected": "{a₁, a₂, a₃}",
+          "selected_is_truth": true,
+          "selected_loss": 92.08699832054461,
+          "selected_share": 0.6757478991596638,
+          "edge_frequency": [
+            1.0,
+            1.0,
+            1.0,
+            0.09202240896358543,
+            0.11573109243697478,
+            0.09174789915966386,
+            0.10344537815126051
+          ],
+          "acceptance": {
+            "полный граф": 0.10433333333333333,
+            "пустой граф": 0.10496666666666667,
+            "случайный граф": 0.1007
+          },
+          "distinct_graphs": 26,
+          "exact_truth_probability": 0.6712580538610913,
+          "exact_edge_frequency": [
+            1.0,
+            1.0,
+            1.0,
+            0.09454985081276984,
+            0.1167167588520078,
+            0.09472287752277621,
+            0.10566743690224532
+          ],
+          "total_variation": {
+            "полный граф": 0.00848069668378236,
+            "пустой граф": 0.010589004990854259,
+            "случайный граф": 0.01817713565139436
+          }
+        },
+        "с интервенцией": {
+          "selected": "{a₁, a₂, a₃}",
+          "selected_is_truth": true,
+          "selected_loss": 92.08956949332656,
+          "selected_share": 0.9679607843137255,
+          "edge_frequency": [
+            1.0,
+            1.0,
+            1.0,
+            0.005983193277310925,
+            0.013282913165266107,
+            0.006061624649859944,
+            0.00711484593837535
+          ],
+          "acceptance": {
+            "полный граф": 0.01385,
+            "пустой граф": 0.012566666666666667,
+            "случайный граф": 0.013666666666666667
+          },
+          "distinct_graphs": 30
+        }
+      }
+    },
+    "water": {
+      "edges": [
+        "a₁",
+        "a₂",
+        "a₃",
+        "a₄",
+        "c₀",
+        "c₂",
+        "c₋₂",
+        "c₋₄"
+      ],
+      "truth": "{a₁, a₂, a₃, a₄}",
+      "validation_rmse": 2.9342841211870396e-06,
+      "tolerance": 0.0002,
+      "edge_price": 2.5375869076169133,
+      "edge_report": [
+        {
+          "edge": "a₁",
+          "kind": "резонанс Зельмейера",
+          "truth": true,
+          "selected": true,
+          "ratio": 0.00044387661949241814,
+          "instability": 0.00044387661949241814,
+          "delta_loss_before": 350363055.28107953,
+          "delta_loss_after": 350363060.32416075,
+          "flip_acceptance": 0.0,
+          "frequency": 1.0,
+          "exact_frequency": null,
+          "lab2_delta_rmse": 0.05916494990104465,
+          "lab2_tolerance": 0.0002,
+          "lab2_decision": "СОХРАНИТЬ"
+        },
+        {
+          "edge": "a₂",
+          "kind": "резонанс Зельмейера",
+          "truth": true,
+          "selected": true,
+          "ratio": 0.0023826910957212505,
+          "instability": 0.0023826910957212505,
+          "delta_loss_before": 457991.24967800983,
+          "delta_loss_after": 457991.22132503765,
+          "flip_acceptance": 0.0,
+          "frequency": 1.0,
+          "exact_frequency": null,
+          "lab2_delta_rmse": 0.00218250981777743,
+          "lab2_tolerance": 0.0002,
+          "lab2_decision": "СОХРАНИТЬ"
+        },
+        {
+          "edge": "a₃",
+          "kind": "резонанс Зельмейера",
+          "truth": true,
+          "selected": true,
+          "ratio": 0.00832718624440403,
+          "instability": 0.00832718624440403,
+          "delta_loss_before": 38838.21154848506,
+          "delta_loss_after": 38838.1859301932,
+          "flip_acceptance": 0.0,
+          "frequency": 1.0,
+          "exact_frequency": null,
+          "lab2_delta_rmse": 0.0006345147955243323,
+          "lab2_tolerance": 0.0002,
+          "lab2_decision": "СОХРАНИТЬ"
+        },
+        {
+          "edge": "a₄",
+          "kind": "резонанс Зельмейера",
+          "truth": true,
+          "selected": true,
+          "ratio": 0.0015173254044359838,
+          "instability": 0.0015173254044359838,
+          "delta_loss_before": 609926.5354497791,
+          "delta_loss_after": 609929.0423056942,
+          "flip_acceptance": 0.0,
+          "frequency": 1.0,
+          "exact_frequency": null,
+          "lab2_delta_rmse": 0.003078591531536067,
+          "lab2_tolerance": 0.0002,
+          "lab2_decision": "СОХРАНИТЬ"
+        },
+        {
+          "edge": "c₀",
+          "kind": "полиномиальный член",
+          "truth": false,
+          "selected": false,
+          "ratio": 2.018701949895606,
+          "instability": 1.0,
+          "delta_loss_before": 1.8893208558248489,
+          "delta_loss_after": 4.579042167832839,
+          "flip_acceptance": 0.010896224794266404,
+          "frequency": 0.009439775910364146,
+          "exact_frequency": null,
+          "lab2_delta_rmse": -1.2179987694939897e-06,
+          "lab2_tolerance": 0.0002,
+          "lab2_decision": "УДАЛИТЬ"
+        },
+        {
+          "edge": "c₂",
+          "kind": "полиномиальный член",
+          "truth": false,
+          "selected": false,
+          "ratio": 0.9404465160126934,
+          "instability": 0.9404465160126934,
+          "delta_loss_before": 1.2151012355803346,
+          "delta_loss_after": 3.722732090409451,
+          "flip_acceptance": 0.02465262758467175,
+          "frequency": 0.021602240896358545,
+          "exact_frequency": null,
+          "lab2_delta_rmse": -2.376858277148214e-06,
+          "lab2_tolerance": 0.0002,
+          "lab2_decision": "УДАЛИТЬ"
+        },
+        {
+          "edge": "c₋₂",
+          "kind": "полиномиальный член",
+          "truth": false,
+          "selected": false,
+          "ratio": 1.9266667415364316,
+          "instability": 1.0,
+          "delta_loss_before": 1.8549033074454826,
+          "delta_loss_after": 4.497218258496716,
+          "flip_acceptance": 0.011873798970411563,
+          "frequency": 0.01146218487394958,
+          "exact_frequency": null,
+          "lab2_delta_rmse": -1.2604445129398664e-06,
+          "lab2_tolerance": 0.0002,
+          "lab2_decision": "УДАЛИТЬ"
+        },
+        {
+          "edge": "c₋₄",
+          "kind": "полиномиальный член",
+          "truth": false,
+          "selected": false,
+          "ratio": 1.3464091127329012,
+          "instability": 1.0,
+          "delta_loss_before": 1.6076770701536276,
+          "delta_loss_after": 4.15761929449944,
+          "flip_acceptance": 0.01680974468073432,
+          "frequency": 0.015641456582633054,
+          "exact_frequency": null,
+          "lab2_delta_rmse": -1.5448498246428484e-06,
+          "lab2_tolerance": 0.0002,
+          "lab2_decision": "УДАЛИТЬ"
+        }
+      ],
+      "lab2_rule_agrees": true,
+      "lab2_full_graph": {
+        "boundary_fraction": 0.895,
+        "identified": [
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          true,
+          true
+        ],
+        "records": [
+          {
+            "dataset": "water_library",
+            "parameter": "a1",
+            "estimate": 0.46978227667193134,
+            "ablated_value": 0.0,
+            "full_rmse": 5.156146810970743e-06,
+            "reduced_rmse": 0.0008088764428648746,
+            "delta_rmse": 0.0008037202960539039,
+            "tolerance": 0.0002,
+            "boundary_fraction": 0.895,
+            "decision": "СОХРАНИТЬ"
+          },
+          {
+            "dataset": "water_library",
+            "parameter": "a2",
+            "estimate": 0.17101255009123698,
+            "ablated_value": 0.0,
+            "full_rmse": 5.156146810970743e-06,
+            "reduced_rmse": 4.612285989290876e-05,
+            "delta_rmse": 4.0966713081938014e-05,
+            "tolerance": 0.0002,
+            "boundary_fraction": 0.895,
+            "decision": "СОХРАНИТЬ"
+          },
+          {
+            "dataset": "water_library",
+            "parameter": "a3",
+            "estimate": 0.021092344979812758,
+            "ablated_value": 0.0,
+            "full_rmse": 5.156146810970743e-06,
+            "reduced_rmse": 4.179046831293148e-05,
+            "delta_rmse": 3.663432150196074e-05,
+            "tolerance": 0.0002,
+            "boundary_fraction": 0.895,
+            "decision": "СОХРАНИТЬ"
+          },
+          {
+            "dataset": "water_library",
+            "parameter": "a4",
+            "estimate": 0.11656725504557186,
+            "ablated_value": 0.0,
+            "full_rmse": 5.156146810970743e-06,
+            "reduced_rmse": 4.129074408604678e-05,
+            "delta_rmse": 3.613459727507603e-05,
+            "tolerance": 0.0002,
+            "boundary_fraction": 0.895,
+            "decision": "СОХРАНИТЬ"
+          },
+          {
+            "dataset": "water_library",
+            "parameter": "c0",
+            "estimate": 0.09999999543411622,
+            "ablated_value": 0.0,
+            "full_rmse": 5.156146810970743e-06,
+            "reduced_rmse": 5.1512740489956135e-06,
+            "delta_rmse": -4.872761975129237e-09,
+            "tolerance": 0.0002,
+            "boundary_fraction": 0.895,
+            "decision": "СОХРАНИТЬ"
+          },
+          {
+            "dataset": "water_library",
+            "parameter": "c2",
+            "estimate": 0.0003571570913010679,
+            "ablated_value": 0.0,
+            "full_rmse": 5.156146810970743e-06,
+            "reduced_rmse": 4.741570372835796e-06,
+            "delta_rmse": -4.145764381349464e-07,
+            "tolerance": 0.0002,
+            "boundary_fraction": 0.895,
+            "decision": "СОХРАНИТЬ"
+          },
+          {
+            "dataset": "water_library",
+            "parameter": "c-2",
+            "estimate": 0.0005204733475635342,
+            "ablated_value": 0.0,
+            "full_rmse": 5.156146810970743e-06,
+            "reduced_rmse": 5.151062474306023e-06,
+            "delta_rmse": -5.084336664719371e-09,
+            "tolerance": 0.0002,
+            "boundary_fraction": 0.895,
+            "decision": "СОХРАНИТЬ"
+          },
+          {
+            "dataset": "water_library",
+            "parameter": "c-4",
+            "estimate": 3.645688408013566e-06,
+            "ablated_value": 0.0,
+            "full_rmse": 5.156146810970743e-06,
+            "reduced_rmse": 5.149272762790588e-06,
+            "delta_rmse": -6.874048180155201e-09,
+            "tolerance": 0.0002,
+            "boundary_fraction": 0.895,
+            "decision": "СОХРАНИТЬ"
+          }
+        ]
+      },
+      "stages": {
+        "без интервенции": {
+          "selected": "{a₁, a₂, a₃, a₄}",
+          "selected_is_truth": true,
+          "selected_loss": 76.01128835881434,
+          "selected_share": 0.505422969187675,
+          "edge_frequency": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.11883473389355742,
+            0.19357422969187674,
+            0.12073949579831933,
+            0.14286274509803923
+          ],
+          "acceptance": {
+            "полный граф": 0.12531666666666666,
+            "пустой граф": 0.12815,
+            "случайный граф": 0.12676666666666667
+          },
+          "distinct_graphs": 22,
+          "exact_truth_probability": 0.5120178007270814,
+          "exact_edge_frequency": [
+            1.0000000000000002,
+            1.0000000000000002,
+            1.0000000000000002,
+            1.0000000000000002,
+            0.11629972556712877,
+            0.19121713468146448,
+            0.11902163558377468,
+            0.14169565948877585
+          ],
+          "total_variation": {
+            "полный граф": 0.008513037983348121,
+            "пустой граф": 0.01820165443867436,
+            "случайный граф": 0.012840084789217334
+          }
+        },
+        "с интервенцией": {
+          "selected": "{a₁, a₂, a₃, a₄}",
+          "selected_is_truth": true,
+          "selected_loss": 76.04344232391394,
+          "selected_share": 0.9424145658263305,
+          "edge_frequency": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.009439775910364146,
+            0.021602240896358545,
+            0.01146218487394958,
+            0.015641456582633054
+          ],
+          "acceptance": {
+            "полный граф": 0.024383333333333333,
+            "пустой граф": 0.021866666666666666,
+            "случайный граф": 0.023183333333333334
+          },
+          "distinct_graphs": 27
+        }
+      }
+    }
+  },
+  "stability_profile": [
+    {
+      "problem": "rlc",
+      "graph": "{M, R₂, Rₘ}",
+      "edges": [
+        "M",
+        "R₂",
+        "Rₘ"
+      ],
+      "levels": [
+        0.5,
+        1.0,
+        2.0,
+        4.0
+      ],
+      "ratio": [
+        [
+          0.003166431536027678,
+          0.00309777357996908,
+          0.262667684188995
+        ],
+        [
+          0.006981589845147983,
+          0.007019415421404579,
+          0.5704574117549688
+        ],
+        [
+          0.016020483671244104,
+          0.016753313672211032,
+          1.2844161197338313
+        ],
+        [
+          0.03639765511509032,
+          0.03897418072646669,
+          2.8042308120082535
+        ]
+      ]
+    },
+    {
+      "problem": "silica",
+      "graph": "{a₁, a₂, a₃, c₀}",
+      "edges": [
+        "a₁",
+        "a₂",
+        "a₃",
+        "c₀"
+      ],
+      "levels": [
+        0.5,
+        1.0,
+        2.0,
+        4.0
+      ],
+      "ratio": [
+        [
+          0.0032747426814255637,
+          0.00168407929204242,
+          3.5396280163285554e-05,
+          0.7358210947215374
+        ],
+        [
+          0.0066866790323037795,
+          0.003443404628207971,
+          7.197546462480681e-05,
+          1.5001868715015567
+        ],
+        [
+          0.013914200385743841,
+          0.007190033604505468,
+          0.00015122505226473006,
+          3.1178393098038155
+        ],
+        [
+          0.028960984875348133,
+          0.014959356611190543,
+          0.00032387067585437206,
+          6.490895949270883
+        ]
+      ]
+    }
+  ]
+}

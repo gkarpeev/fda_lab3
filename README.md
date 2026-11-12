@@ -1,5 +1,27 @@
 # Maxwell: EM scattering and tag-reader coupling
 
+## Лабораторная №3
+
+Метод №3 — Метрополис — Хастингс для графов, на основе ЛР2
+(<https://github.com/TeoSable/fda_lab2>).
+Выполненный ноутбук: [`notebooks/lab3_metropolis_hastings.ipynb`](notebooks/lab3_metropolis_hastings.ipynb),
+презентация: [`slides/lab3_presentation.pdf`](slides/lab3_presentation.pdf).
+
+Граф модели G — набор рёбер из K кандидатов, на каждом ребре один
+параметр регрессии. Графы семплируются из π(G) ∝ exp(−J(G)),
+J(G) = ½χ²(G) + ½ ln m · (|G| + λ·Σuₑ): невязка, сложность и неустойчивость
+параметров рёбер к интервенции ЛР2. Два этапа: без интервенции (λ = 0)
+и с интервенцией в целевой функции и в предложении следующего графа.
+
+Описание эксперимента и запуск: [`docs/LAB3_GUIDE.md`](docs/LAB3_GUIDE.md).
+Семплер: `src/graphmh/`; задача: `src/emlab/lab3_*.py`; результаты:
+`results/lab3/`; версии — `environment-lab3.txt`.
+
+```bash
+.venv/bin/python -m pytest -q
+.venv/bin/python scripts/execute_lab3.py
+```
+
 ## Лабораторная №2
 
 Выполненный отдельный ноутбук: [`notebooks/lab2_interventions.ipynb`](notebooks/lab2_interventions.ipynb).
